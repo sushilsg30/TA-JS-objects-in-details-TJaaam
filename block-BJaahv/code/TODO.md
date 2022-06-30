@@ -71,7 +71,7 @@ class {
     return this.noOfProject - num;
   }
 }
-Write 2 tests for all the different ways of creating object. Test all the methods on these objects.
+//Write 2 tests for all the different ways of creating //object. Test all the methods on these objects.
 
 console.log(this.decrementProject(2));
 console.log(this.decrementProject(1));
