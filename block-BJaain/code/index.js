@@ -1,15 +1,15 @@
-console.log(this.document === document); // Output
+console.log(this.document === document); // true
 
 // ------------
 
-console.log(this === window); //Output
+console.log(this === window); //true
 
 // ------------
 
 var myFunction = function () {
   console.log(this);
 };
-myFunction(); // Output
+myFunction(); // Window
 
 // ------------
 
@@ -17,7 +17,7 @@ function f1() {
   'use strict';
   return this;
 }
-console.log(f1() === window); //Output
+console.log(f1() === window); //false
 
 // ------------
 
@@ -26,7 +26,7 @@ function foo() {
   console.log(this === window);
 }
 
-foo(); //Output ??
+foo(); // Simple function call //true
 
 // ------------
 
@@ -34,7 +34,7 @@ foo(); //Output ??
 (function () {
   console.log('Anonymous function invocation');
   console.log(this === window);
-})(); //Output
+})(); //Output --> Anonymous function invocation //true
 
 // ------------
 
@@ -42,7 +42,7 @@ var myObject = {};
 myObject.someMethod = function () {
   console.log(this);
 };
-myObject.someMethod(); //Value Of This
+myObject.someMethod(); //Value Of This {someMethod: ƒ}
 
 // ------------
 
@@ -56,9 +56,9 @@ function Person(fn, ln) {
 }
 
 let person = new Person('John', 'Reed');
-person.displayName(); // Output
+person.displayName(); // Name: John Reed
 let person2 = new Person('Paul', 'Adams');
-person2.displayName(); // Output
+person2.displayName(); // Name: Paul Adams
 
 // ------------
 
@@ -76,10 +76,10 @@ let user = {
   },
 };
 
-user.foo(); // Output
+user.foo(); // Output //Simple function call //false
 let fun1 = user.foo1;
-fun1(); // Output ??
-user.foo1(); // Output ??
+fun1(); // true
+user.foo1(); // false
 
 // ------------
 
@@ -91,13 +91,13 @@ var obj = {
   },
 };
 
-obj.getX(); // Output ??
+obj.getX(); // Output ?? // 81
 
 var retrieveX = obj.getX;
-retrieveX(); //Output ??
+retrieveX(); //Output ?? // 9
 
 var boundGetX = retrieveX.bind(obj);
-boundGetX(); // Output ??
+boundGetX(); // Output ?? // 81
 
 // ------------
 
@@ -111,11 +111,11 @@ function Person(fn, ln) {
 }
 
 let person = new Person('John', 'Reed');
-person.displayName(); // Output
+person.displayName(); // Output //Name: John Reed
 let person2 = new Person('Paul', 'Adams');
-person2.displayName(); // Output
+person2.displayName(); // Output //Name: Paul Adams
 
-person.displayName.call(person2); // Output ??
+person.displayName.call(person2); // Output ?? //Name: Paul Adams
 
 // ------------
 
@@ -133,21 +133,21 @@ obj.getThis4 = obj.getThis2.bind(obj);
 
 // Output
 obj.getThis();
-
+// Window
 // Output
 obj.getThis.call(a);
-
+//Window
 // Output
 obj.getThis2();
 
 // Output
-obj.getThis2.call(a);
+obj.getThis2.call(a); //{getThis: ƒ, getThis2: ƒ, getThis3: ƒ, getThis4: ƒ}
 
 // Output
-obj.getThis3();
+obj.getThis3(); //Window
 
 // Output
-obj.getThis4();
+obj.getThis4(); //{getThis: ƒ, getThis2: ƒ, getThis3: ƒ, getThis4: ƒ}
 
 // -------------
 
@@ -158,10 +158,10 @@ let person = {
   },
 };
 
-person.greet(); // output
+person.greet(); // output//hello, Jay
 
 let greet = person.greet;
-greet(); // output
+greet(); // output //hello,
 
 // -------------
 
