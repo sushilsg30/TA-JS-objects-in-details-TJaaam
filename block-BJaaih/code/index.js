@@ -4,7 +4,11 @@
 */
 
 // myMap function goes here
-
+Array.prototype = {
+  myMap: function(array){
+    return array.map();
+  }
+}
 // Test the myMap function you created above
 
 let numbers = [1, 5, 6, 8, 9];
