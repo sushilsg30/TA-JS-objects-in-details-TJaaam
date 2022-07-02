@@ -36,13 +36,11 @@ let dogsMethods = {
 };
 Object.setPrototypeOf(dogsMethods, animalMethods);
 
-function createAnimal(location, numberOfLegs){
+function createAnimal(location, numberOfLegs, name, color){
     let animal = createAnimal(location, numberOfLegs);
-
     Object.setPrototypeOf(animal, dogsMethods);
-
-    animal.location = location;
-    animal.legs = numberOfLegs;
+    animal.name = name;
+    animal.color = color;
     return animal;
 }
 
@@ -68,7 +66,7 @@ function createAnimal(location, numberOfLegs){
     let animal = createAnimal(location, numberOfLegs);
     Object.setPrototypeOf(animal, catsMethods);
 
-    animal.name = location;
+    animal.name =  location;
     animal.legs = numberOfLegs;
     return animal;
 }
