@@ -4,11 +4,14 @@
 */
 
 // myMap function goes here
-Array.prototype = {
-  myMap: function(array){
-    return array.map();
+Array.prototype.myMap =  function(cb){
+    let final = [];
+    for(let i = 0; i < this.length; i++){
+      const element = this[i];
+      final.push(cb(element, i, this));
+    }
+    return final;
   }
-}
 // Test the myMap function you created above
 
 let numbers = [1, 5, 6, 8, 9];
@@ -32,7 +35,16 @@ console.log(capitalWords); // it should be 'Quick Brown Fox Jumped Over A Lazy D
 After adding the function test it using the code below.
 */
 
-// You code goes here
+Array.prototype.myFilter =  function(cb){
+  let final = [];
+  for(let i = 0; i < this.length; i++){
+    const element = this[i];
+    if(cb(element, i, this)){
+      final.push(element);
+    }
+  }
+  return final;
+}
 
 let even = numbers.myFilter(function (num) {
   return num % 2 === 0;
@@ -53,7 +65,9 @@ Make sure it does not the changes the original array.
 
 */
 
-// You code goes here
+Array.prototype.shuffle =  function(){
+  return [...this].sort(() => Math.random() - 0.5);
+}
 
 // Test to check the shuffle method (It will return different output every time you call)
 console.log(numbers.shuffle());
@@ -67,7 +81,14 @@ new array and it should only contain unique elements in the array.
 Unique means no element should come multiple times.
 */
 
-// You code goes here
+Array.prototype.unique =  function(){
+  return this.reduce((acc, cv) =>{
+    if(!acc.includes(cv)){
+      acc.push(cv);
+    }
+    return acc;
+  } ,[])
+}
 
 // Test to check the shuffle method (It will return different output every time you call)
 let num = [1, 2, 3, 4, 2, 3, 6, 7, 7];
@@ -81,7 +102,14 @@ console.log(strings.unique()); // ['h', 'e', 'l', 'o', 'w', 'r', 'd']
 array that will contain only element that is common in both the array.
 */
 
-// You code goes here
+Array.prototype.intersection =  function(arr){
+  return this.reduce((acc, cv) =>{
+    if(arr.includes(cv)){
+      acc.push(cv);
+    }
+    return acc;
+  } ,[]).unique();
+}
 
 // Test to check the shuffle method (It will return different output every time you call)
 console.log(num.intersection([2, 7, 11, 32])); // [2, 7]
@@ -93,7 +121,16 @@ and split the array into groups the length of size. If array can't be split even
 chunk will be the remaining elements. `length` should default to 1.
 */
 
-// You code goes here
+Array.prototype.chunk = function (size = 1){
+  let arr = [...this];
+  let len = Math.floor(arr.length / size);
+  let final = [];
+  for (let i = 0; i <= len; i ++){
+    let chunk = arr.splice(0, size);
+    final.push(chunk);
+  }
+  return final.filter((elm) => elm.length);
+};
 
 // Test to check the shuffle method (It will return different output every time you call)
 console.log(num.chunk(2)); // [[1, 2], [3, 4], [2, 3], [6, 7], [7]]
