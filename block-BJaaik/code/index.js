@@ -16,8 +16,8 @@ class Person{
 }
 
 class Teacher extends Person{
-    constructor(instituteName){
-        // super(name, age, gender)
+    constructor(name, age, gender, instituteName){
+        super(name, age, gender)
         this.instituteName = instituteName;
     }
     teach(){
@@ -25,8 +25,8 @@ class Teacher extends Person{
     }
 }
  class Artist extends Person{
-    constructor(kind){
-        // super(name, age, gender);
+    constructor(name, age, gender, kind){
+        super(name, age, gender);
         this.kind = kind;        
     }
     createArt(){
@@ -35,10 +35,21 @@ class Teacher extends Person{
  }
 
  class Player extends Person{
-    constructor(spotsName){
+    constructor(name, age, gender, spotsName){
+        super(name, age, gender);
         this.spotsName = spotsName;
     }
     play(){
-        
+
+    }
+ }
+
+ class Cricketer extends Player{
+    constructor(name, age, gender, spotsName, teamName){
+        super(name, age, gender, spotsName);
+        this.teamName = teamName;
+    }
+    playCricket(){
+
     }
  }
