@@ -46,46 +46,72 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+
+/* Custom-Styles */
 body{
-    padding: 2rem;
-}
-.header{
     text-align: center;
-}
-.header h1{
-    font-size: 3rem;
-    font-weight: 700;
-    letter-spacing: 0.15rem;
-}
-
-.title-blue{
-    color: rgb(70, 70, 236);
-}
-.book-info {
-    border: 2px solid rgb(70, 70, 236);
     padding: 2rem;
-    width: 80%;
-    margin: 1rem auto;
 }
+.container{
+    width: 20rem;
+    margin: 0 auto;
+    padding: 2rem;
+    box-shadow: 2px 2px 10px rgba(151, 101, 101, 0.5);
+    margin-bottom: 1rem;
+}
+.modal{
+    padding: 32px;
+    width: 35rem;
+    margin: 0 auto;
+    box-shadow: 2px 2px 32px rgba(51, 39, 39, 0.5);
+}
+.width-full {
+    width: 60%;
+    margin-top: 1rem;
+} 
 
-label{
-    font-size: 1.2rem;
+.form_title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: palevioletred;
 }
-input{
-    width: 100%;
+.form_subtitle {
+    font-size: 1rem;
+    font-weight: 400;
     margin: 1rem 0;
-    border: 0.05rem solid gray;
 }
-.submit-button{
-    background-color: rgb(70, 70, 236);
+.form input {
+    width: 80%;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+.form-button{
+    padding: 0.5rem 1rem;
     border: none;
-    padding: 0.2rem 0;
+    background-color: palevioletred;
     color: white;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
 }
-/* h4,span{
-    margin-left: 3rem;
-} */
-.flex {
-    display: flex;
-    align-items: center;
+.form-button:hover {
+    border: 1px solid palevioletred;
+    color: palevioletred;
+    background-color: white;
+}
+.book-title{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.author-name {
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+.book-list li {
+    box-shadow: 2px 2px 10px rgba(151, 101, 101, 0.5);
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding: 1rem;
 }
